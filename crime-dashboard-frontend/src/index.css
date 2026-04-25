@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #0b0c10;
+  --panel-bg: rgba(31, 38, 52, 0.4);
+  --accent-color: #1ed760; /* Vibrant Green */
+  --accent-secondary: #ff4d4d; /* Crimson for Alerts */
+  --text-main: #ffffff;
+  --text-dim: #c5c6c7;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --font-family: 'Outfit', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--bg-color);
+  color: var(--text-main);
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(161, 80%, 20%, 0.15) 0, transparent 50%), 
+    radial-gradient(at 50% 100%, hsla(350, 70%, 15%, 0.1) 0, transparent 50%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  background: var(--panel-bg);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid var(--border-color);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  letter-spacing: -1px;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.nav-item {
+  padding: 12px 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-item:hover, .nav-item.active {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.nav-item.active {
+  border-left: 3px solid var(--accent-color);
+}
+
+/* Main Content */
+.main-content {
+  padding: 40px;
+  overflow-y: auto;
+  background: transparent;
+}
+
+.header {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #fff, #888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Stats Cards */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.glass-card {
+  background: var(--panel-bg);
+  backdrop-filter: blur(8px);
+  padding: 25px;
+  border-radius: 24px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+}
+
+.glass-card h3 {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.glass-card .value {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+/* Tableau Embed */
+.tableau-section {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.tableau-container {
+  width: 100%;
+  height: 80vh;
+  min-height: 700px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background: #fff;
+}
+
+/* Incident Form */
+.incident-form-section {
+  display: flex;
+  gap: 30px;
+}
+
+.form-container {
+  flex: 1;
+}
+
+.report-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+input, select, textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  padding: 15px;
+  border-radius: 12px;
+  color: #fff;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+select option {
+  color: #000;
+  background: #fff;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--accent-color);
+}
+
+.btn-primary {
+  background: var(--accent-color);
+  color: #000;
+  padding: 15px;
+  border-radius: 12px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
+}
+
+.btn-primary:hover {
+  background: #19bd54;
+  box-shadow: 0 0 20px rgba(30, 215, 96, 0.4);
+}
+
+.btn-disabled {
+  background: #444;
+  cursor: not-allowed;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}

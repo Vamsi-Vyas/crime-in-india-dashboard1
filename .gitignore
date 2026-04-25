@@ -1,0 +1,8 @@
+node_modules/
+.env
+google-credentials.json
+crime-dashboard-key.json
+crime_data.xlsx
+.DS_Store
+dist/
+build/
